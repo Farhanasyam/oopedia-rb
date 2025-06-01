@@ -17,7 +17,7 @@ class QuestionController extends Controller
     public function checkAnswer(Request $request)
     {
         // Tambahkan di awal fungsi checkAnswer atau submitAnswer pada setiap controller
-        \Log::info("CONTROLLER_TRACE: " . __CLASS__ . " handling answer submission");
+        Log::info("CONTROLLER_TRACE: " . __CLASS__ . " handling answer submission");
         
         // Log semua data request untuk debugging
         Log::info('Request data for checkAnswer:', $request->all());
@@ -80,7 +80,7 @@ class QuestionController extends Controller
                     
                     $explanation = $correctAnswer->explanation;
                 }
-            } else {
+            } elseif ($question->question_type === 'radio_button') {
                 // Validasi untuk soal pilihan ganda
                 if (!$request->has('answer')) {
                     return response()->json([
@@ -101,6 +101,44 @@ class QuestionController extends Controller
                 }
                 
                 $explanation = $selectedAnswer->explanation;
+            } else {
+                // Validasi untuk soal drag and drop
+                if (!$request->has('drag_and_drop_answers')) {
+                    return response()->json([
+                        'status' => 'error',
+                        'message' => 'Silakan lengkapi semua jawaban drag and drop.',
+                    ], 422);
+                }
+
+                $request->validate([
+                    'drag_and_drop_answers' => 'required|json',
+                ]);
+
+                $userAnswers = json_decode($request->drag_and_drop_answers, true);
+
+                // Ambil jawaban yang benar dari DB dan urutkan berdasarkan zona/id
+                $correctAnswers = $question->answers()
+                    ->where('is_correct', true)
+                    ->orderBy('id') // atau bisa juga orderBy('zone') jika ada kolom zone
+                    ->pluck('answer_text')
+                    ->toArray();
+
+                // Ambil jawaban user dan urutkan berdasarkan zona (1,2,3,...)
+                $userSubmittedAnswers = collect($userAnswers)
+                    ->sortBy('zone') // pastikan nama key 'zone' sesuai dengan yang dikirim di front-end
+                    ->pluck('answer')
+                    ->toArray();
+
+                // Cek apakah semua jawaban benar
+                $isCorrect = ($userSubmittedAnswers === $correctAnswers);
+
+                // Jawaban user dan jawaban benar dalam bentuk teks (json)
+                $selectedAnswerText = json_encode($userSubmittedAnswers);
+                $correctAnswerText = $isCorrect ? null : json_encode($correctAnswers);
+
+                // Penjelasan dari salah satu jawaban yang benar
+                $firstCorrect = $question->answers()->where('is_correct', true)->first();
+                $explanation = $firstCorrect?->explanation;
             }
             
             // Update progress jika user login
@@ -162,7 +200,7 @@ class QuestionController extends Controller
                     
                     session(['guest_progress.' . $request->material_id => $currentProgress]);
                     
-                    \Log::info('Guest progress saved', [
+                    Log::info('Guest progress saved', [
                         'session_after' => session()->all(),
                         'material_progress' => session('guest_progress.' . $request->material_id)
                     ]);
