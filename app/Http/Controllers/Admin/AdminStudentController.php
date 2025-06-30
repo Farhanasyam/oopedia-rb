@@ -203,20 +203,22 @@ class AdminStudentController extends Controller
         try {
             DB::beginTransaction();
             
-            // Hapus semua data terkait
-            // 1. Delete user_ranks records
-            DB::table('user_ranks')->where('user_id', $student->id)->delete();
+            // Check if user_ranks table exists before attempting to delete
+            if (Schema::hasTable('user_ranks')) {
+                DB::table('user_ranks')->where('user_id', $student->id)->delete();
+            }
             
-            // 2. Delete progress records
-            DB::table('progress')->where('user_id', $student->id)->delete();
+            // Check if progress table exists before attempting to delete
+            if (Schema::hasTable('progress')) {
+                DB::table('progress')->where('user_id', $student->id)->delete();
+            }
             
-            // 3. Check for any other possible tables that might have foreign keys
-            // You can add more tables here as needed
-            // For example: student_answers, quiz_attempts, etc.
+            // Check if student_answers table exists before attempting to delete
             if (Schema::hasTable('student_answers')) {
                 DB::table('student_answers')->where('student_id', $student->id)->delete();
             }
             
+            // Check if quiz_attempts table exists before attempting to delete
             if (Schema::hasTable('quiz_attempts')) {
                 DB::table('quiz_attempts')->where('user_id', $student->id)->delete();
             }
