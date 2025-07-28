@@ -1,0 +1,1277 @@
+:root {
+  --bs-primary: #004e98;
+  --bs-primary-rgb: 0, 78, 152;
+  --blue-primary: #004e98;
+  --blue-secondary: #0066cc;
+  --blue-accent: #3a8dff;
+  --blue-dark: #003a75;
+  --blue-light: #e6f2ff;
+  --gradient-blue: linear-gradient(195deg, var(--blue-secondary) 0%, var(--blue-primary) 100%);
+  --gradient-primary: linear-gradient(195deg, var(--blue-primary), var(--blue-dark));
+  --gradient-cool: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --gradient-vibrant: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --text-dark: #344767;
+  --text-light: #f8f9fa;
+}
+
+/* Navbar styling dari template dashboard dengan penyesuaian untuk mahasiswa */
+.navbar {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.16);
+}
+
+.navbar.blur {
+  backdrop-filter: saturate(200%) blur(30px);
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.navbar .navbar-brand {
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.navbar .navbar-brand .text-xs {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #7b809a;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  display: inline-block;
+  position: relative;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.navbar-toggler-bar {
+  display: block;
+  position: absolute;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--blue-primary);
+  transition: all 0.2s;
+  left: 0;
+}
+
+.navbar-toggler-bar.bar1 {
+  top: 0px;
+  transform-origin: left center;
+}
+
+.navbar-toggler-bar.bar2 {
+  top: 7px;
+  opacity: 1;
+}
+
+.navbar-toggler-bar.bar3 {
+  top: 14px;
+  transform-origin: left center;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-bar.bar1 {
+  transform: rotate(45deg);
+  top: 0px;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-bar.bar2 {
+  opacity: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-bar.bar3 {
+  transform: rotate(-45deg);
+  top: 14px;
+}
+
+.navbar .nav-link {
+  color: var(--text-dark);
+  padding: 0.5rem 1rem;
+  font-weight: 400;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  background-color: rgba(0, 78, 152, 0.1);
+  color: var(--blue-primary);
+  transform: translateY(-1px);
+}
+
+.navbar .nav-link i {
+  font-size: 1rem;
+}
+
+.navbar .nav-link.active {
+  color: var(--blue-primary);
+  font-weight: 600;
+}
+
+/* Button styling */
+.btn.bg-gradient-primary {
+  background-image: var(--gradient-blue);
+  border: none;
+  color: white;
+  box-shadow: 0 3px 5px -1px rgba(0, 78, 152, 0.2), 0 6px 10px 0 rgba(0, 78, 152, 0.14), 0 1px 18px 0 rgba(0, 78, 152, 0.12);
+  transition: all 0.3s ease;
+}
+
+.btn.bg-gradient-primary:hover {
+  background-position: right center;
+  box-shadow: 0 5px 15px -3px rgba(0, 78, 152, 0.4), 0 8px 16px 1px rgba(0, 78, 152, 0.2), 0 3px 20px 2px rgba(0, 78, 152, 0.14);
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    position: relative;
+    top: 10px;
+    height: auto !important;
+    margin: 10px;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    padding: 0.5rem;
+    background: white;
+  }
+  
+  .navbar-collapse .navbar-nav .nav-item {
+    margin-bottom: 0.3rem;
+  }
+  
+  .navbar-collapse .navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-collapse .navbar-nav .nav-link i {
+    margin-right: 0.5rem;
+  }
+  
+  .navbar-collapse .navbar-nav .d-lg-none {
+    margin-top: 0.5rem;
+  }
+}
+
+/* Border radius utilities */
+.border-radius-xl {
+  border-radius: 0.75rem;
+}
+
+/* Animations */
+@keyframes navFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar {
+  animation: navFadeIn 0.5s ease-out;
+}
+
+/* Premium Navbar Styling */
+.navbar-premium {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 78, 152, 0.12);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  animation: navbarSlideDown 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  height: 60px;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+@keyframes navbarSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Brand Styling */
+.brand-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.brand-logo {
+  height: 32px;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  transition: all 0.3s ease;
+}
+
+.brand-container:hover .brand-logo {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.15));
+}
+
+/* Premium Nav Links */
+.premium-nav-link {
+  color: var(--text-dark);
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin: 0 5px;
+  font-size: 0.875rem;
+}
+
+.premium-nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 78, 152, 0.08);
+  border-radius: 12px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: -1;
+}
+
+.premium-nav-link:hover {
+  background-color: rgba(0, 78, 152, 0.05);
+  color: var(--blue-primary);
+  transform: translateY(-2px);
+}
+
+.premium-nav-link:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.premium-nav-link i {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.premium-nav-link:hover i {
+  transform: translateY(-2px);
+  color: var(--blue-accent);
+}
+
+/* Premium Button */
+.premium-btn {
+  background-image: var(--gradient-blue);
+  color: white !important;
+  box-shadow: 0 4px 10px rgba(0, 78, 152, 0.2);
+  padding: 8px 20px;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.premium-btn::before {
+  display: none;
+}
+
+.premium-btn:hover {
+  background-image: var(--gradient-primary);
+  color: white !important;
+  box-shadow: 0 6px 15px rgba(0, 78, 152, 0.3);
+  transform: translateY(-3px);
+}
+
+.premium-btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* Premium Toggler */
+.premium-toggler {
+  border: none;
+  background: transparent;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.premium-toggler:hover {
+  background-color: rgba(0, 78, 152, 0.05);
+}
+
+.premium-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.toggler-icon {
+  position: relative;
+  width: 24px;
+  height: 18px;
+}
+
+.toggler-icon span {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background-color: var(--text-dark);
+  border-radius: 2px;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.toggler-icon span:nth-child(1) {
+  top: 0;
+}
+
+.toggler-icon span:nth-child(2) {
+  top: 8px;
+}
+
+.toggler-icon span:nth-child(3) {
+  top: 16px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+  .navbar-premium {
+    padding: 0.5rem 1rem;
+  }
+  
+  .navbar-collapse {
+    background-color: white;
+    border-radius: 15px;
+    padding: 1.2rem;
+    margin-top: 0.8rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 78, 152, 0.05);
+    animation: collapseDown 0.3s ease-out;
+  }
+  
+  @keyframes collapseDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .premium-nav-link {
+    margin: 0.5rem 0;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Standard Theme Overrides */
+.bg-gradient-primary {
+  background-image: linear-gradient(195deg, var(--blue-secondary) 0%, var(--blue-primary) 100%) !important;
+}
+
+.text-primary {
+  color: var(--blue-primary) !important;
+}
+
+.text-primary.text-gradient {
+  background-image: linear-gradient(195deg, var(--blue-secondary) 0%, var(--blue-primary) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-primary, 
+.btn.bg-gradient-primary {
+  background-color: var(--blue-primary);
+  border-color: var(--blue-primary);
+}
+
+.btn-primary:hover, 
+.btn.bg-gradient-primary:hover {
+  background-color: var(--blue-dark);
+  border-color: var(--blue-dark);
+}
+
+a {
+  color: var(--blue-primary);
+}
+
+a:hover {
+  color: var(--blue-dark);
+}
+
+/* Register Page Styling */
+.auth-layout {
+  background-image: url('../images/background-log.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.auth-layout::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 0;
+}
+
+.auth-layout .main-content {
+  position: relative;
+  z-index: 1;
+}
+
+.auth-layout .card {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Pastikan navbar tetap terlihat dengan baik di atas background */
+.auth-layout .navbar-transparent {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.auth-layout .navbar-transparent.scrolled {
+  background-color: rgba(0, 78, 152, 0.95) !important;
+}
+
+.page-header {
+  position: relative;
+}
+
+.card-plain {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 78, 152, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 78, 152, 0.05);
+}
+
+.card-plain:hover {
+  box-shadow: 0 15px 35px rgba(0, 78, 152, 0.15);
+  transform: translateY(-5px);
+}
+
+.card-header {
+  padding: 1.5rem 1.5rem 0.5rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-footer {
+  padding: 0.5rem 1.5rem 1.5rem;
+}
+
+.input-group-outline {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.input-group-outline .form-control {
+  border: 2px solid #d2d6da;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.input-group-outline .form-control:focus {
+  border-color: var(--blue-primary);
+  box-shadow: 0 0 0 3px rgba(0, 78, 152, 0.15);
+  background-color: white;
+}
+
+.input-group-outline.is-filled .form-control {
+  background-color: var(--blue-light);
+  border-color: var(--blue-secondary);
+}
+
+/* Form Label Styling */
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--blue-primary);
+  margin-bottom: 0.5rem;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+/* Enhanced Switch Styling */
+.form-check.form-switch {
+  padding-left: 3rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.form-check.form-switch .form-check-input {
+  height: 1.5rem;
+  width: 3rem;
+  border-radius: 1rem;
+  background-color: #e9ecef;
+  border: none;
+  cursor: pointer;
+  margin-left: -3rem;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.form-check.form-switch .form-check-input:checked {
+  background-color: var(--blue-primary);
+  border-color: var(--blue-primary);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+  background-position: right center;
+}
+
+.form-check.form-switch .form-check-input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(0, 78, 152, 0.25);
+}
+
+.form-check.form-switch .form-check-input:before {
+  content: '';
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  top: 0.125rem;
+  left: 0.125rem;
+  transition: all 0.4s ease;
+}
+
+.form-check.form-switch .form-check-input:checked:before {
+  transform: translateX(1.5rem);
+}
+
+.form-check.form-switch .form-check-label {
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  transition: all 0.3s ease;
+}
+
+.form-check.form-switch:hover .form-check-label {
+  color: var(--blue-primary);
+}
+
+/* Styling untuk tombol register dengan peningkatan keterbacaan */
+.btn-register {
+  background: var(--gradient-blue);
+  color: white !important;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  border: none;
+  border-radius: 8px;
+  padding: 0.85rem 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.btn-register:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+  background: linear-gradient(195deg, #0074D9 0%, #003a75 100%);
+}
+
+.btn-register:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Memastikan teks pada tombol selalu terlihat dengan jelas */
+.btn-register span, 
+.btn-register .text-sm,
+.btn-register .text-xs,
+.btn-register .text-md,
+.btn-register .text-lg {
+  color: white !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+}
+
+.btn-pulse {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 78, 152, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 78, 152, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 78, 152, 0);
+  }
+}
+
+/* Error Message Styling */
+.text-danger.inputerror {
+  font-size: 0.75rem;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  display: block;
+}
+
+/* Card Animation */
+.card-plain {
+  transition: all 0.4s ease;
+}
+
+.card-plain:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 78, 152, 0.1);
+}
+
+/* Student Navbar Styling - Desain untuk Mahasiswa */
+.student-navbar {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 78, 152, 0.12);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  animation: navbarSlideDown 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  height: 60px;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.student-navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gradient-cool);
+  z-index: 1;
+}
+
+@keyframes navbarSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Brand Styling */
+.brand-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.brand-logo {
+  height: 32px;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  transition: all 0.3s ease;
+}
+
+.brand-tagline {
+  margin-left: 12px;
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 500;
+  position: relative;
+  padding-left: 12px;
+}
+
+.brand-tagline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 16px;
+  width: 1px;
+  background-color: #ddd;
+}
+
+.brand-container:hover .brand-logo {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.15));
+}
+
+/* Student Nav Links */
+.student-nav-link {
+  color: var(--text-dark);
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin: 0 5px;
+  font-size: 0.875rem;
+}
+
+.student-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-cool);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.student-nav-link:hover {
+  color: var(--blue-primary);
+  transform: translateY(-2px);
+}
+
+.student-nav-link:hover::after {
+  width: 80%;
+}
+
+/* Student Button */
+.student-btn {
+  background-image: var(--gradient-cool);
+  color: white !important;
+  box-shadow: 0 4px 10px rgba(0, 78, 152, 0.2);
+  padding: 8px 20px;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.student-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-vibrant);
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.student-btn:hover {
+  color: white !important;
+  box-shadow: 0 6px 15px rgba(0, 78, 152, 0.3);
+  transform: translateY(-3px) scale(1.02);
+}
+
+.student-btn:hover::before {
+  opacity: 1;
+}
+
+/* Student Toggler */
+.student-toggler {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background-color: rgba(0, 78, 152, 0.05);
+}
+
+.student-toggler:hover {
+  background-color: rgba(0, 78, 152, 0.1);
+}
+
+.toggler-icon {
+  position: relative;
+  width: 24px;
+  height: 18px;
+}
+
+.toggler-icon span {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background-color: var(--blue-primary);
+  border-radius: 2px;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.toggler-icon span:nth-child(1) {
+  top: 0;
+}
+
+.toggler-icon span:nth-child(2) {
+  top: 8px;
+  width: 70%;
+}
+
+.toggler-icon span:nth-child(3) {
+  top: 16px;
+}
+
+.student-toggler[aria-expanded="true"] .toggler-icon span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.student-toggler[aria-expanded="true"] .toggler-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.student-toggler[aria-expanded="true"] .toggler-icon span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+  .student-navbar {
+    padding: 0.5rem 1rem;
+  }
+  
+  .navbar-collapse {
+    background-color: white;
+    border-radius: 15px;
+    padding: 1.2rem;
+    margin-top: 0.8rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 78, 152, 0.05);
+    animation: collapseDown 0.3s ease-out;
+  }
+  
+  @keyframes collapseDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .student-nav-link {
+    margin: 0.5rem 0;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .student-nav-link::after {
+    display: none;
+  }
+  
+  .student-btn {
+    margin-top: 0.5rem;
+  }
+}
+
+/* Navbar styling untuk mahasiswa */
+.navbar-transparent {
+  background-color: transparent !important;
+  transition: all 0.5s ease;
+}
+
+.navbar-transparent.scrolled {
+  background-color: rgba(0, 78, 152, 0.95) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-transparent .navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.navbar-transparent .navbar-brand:hover {
+  transform: translateY(-2px);
+}
+
+.navbar-transparent .nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar-transparent .nav-link:hover {
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+.navbar-transparent .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navbar-transparent .nav-link:hover::after {
+  width: 70%;
+}
+
+.btn-navbar {
+  padding: 0.5rem 1rem !important;
+  border-radius: 2rem !important;
+  color: white !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease !important;
+}
+
+.btn-navbar:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1) !important;
+}
+
+.navbar-toggler {
+  padding: 0.25rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  transition: all 0.15s ease-in-out;
+}
+
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  content: "";
+  background: no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.navbar-toggler-bar {
+  display: block;
+  position: relative;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background: #ffffff;
+  transition: all 0.2s;
+  margin: 0 auto;
+}
+
+.navbar-toggler-bar+.navbar-toggler-bar {
+  margin-top: 7px;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-bar:nth-child(1) {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-bar:nth-child(3) {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: rgba(0, 78, 152, 0.95);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-transparent .nav-link {
+    margin: 0.5rem 0;
+  }
+  
+  .navbar-transparent .nav-link::after {
+    display: none;
+  }
+  
+  .btn-navbar {
+    margin-top: 0.5rem;
+    display: inline-block;
+  }
+}
+
+/* Tambahkan script ini di file JS Anda */
+/* 
+document.addEventListener('DOMContentLoaded', function() {
+  window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar-transparent');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+});
+*/
+
+/* Logo styling */
+
+
+.navbar-transparent.scrolled .navbar-logo {
+  filter: none; /* Mengembalikan warna asli logo saat navbar scrolled */
+}
+
+/* Fallback jika logo tidak muncul */
+.logo-fallback {
+  font-weight: 700;
+  font-size: 1.5rem;
+  display: none; /* Secara default disembunyikan */
+}
+
+/* Jika logo gagal dimuat, tampilkan fallback text */
+img.navbar-logo:not([src]), 
+img.navbar-logo[src=""], 
+img.navbar-logo[src="error"], 
+img.navbar-logo[src$="undefined"] {
+  display: none;
+}
+
+img.navbar-logo:not([src]) ~ .logo-fallback,
+img.navbar-logo[src=""] ~ .logo-fallback,
+img.navbar-logo[src="error"] ~ .logo-fallback,
+img.navbar-logo[src$="undefined"] ~ .logo-fallback {
+  display: inline-block;
+}
+
+/* Script untuk mendeteksi error loading image */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: rgba(0, 78, 152, 0.95);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Custom Checkbox Styling */
+.custom-checkbox {
+  position: relative;
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-left: 0.25rem;
+}
+
+.custom-checkbox .form-check-input {
+  width: 20px;
+  height: 20px;
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: 0;
+  background-color: #fff;
+  border: 2px solid var(--blue-primary);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.custom-checkbox .form-check-input:checked {
+  background-color: #0074D9 !important;
+  border-color: #0074D9 !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 14px;
+  animation: checkbox-pop 0.3s ease;
+}
+
+.custom-checkbox .form-check-input:focus {
+  border-color: #0074D9;
+  box-shadow: 0 0 0 0.25rem rgba(0, 116, 217, 0.25);
+}
+
+.custom-checkbox .form-check-label {
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  padding-left: 0.75rem;
+}
+
+.custom-checkbox .badge.bg-gradient-primary {
+  background: var(--gradient-blue);
+  font-size: 0.65rem;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0, 78, 152, 0.2);
+}
+
+.custom-checkbox .text-xxs {
+  font-size: 0.65rem;
+}
+
+@keyframes checkbox-pop {
+  0% { transform: scale(0.8); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Hover effect untuk checkbox */
+.custom-checkbox:hover .form-check-input:not(:checked) {
+  border-color: var(--blue-accent);
+  background-color: rgba(58, 141, 255, 0.05);
+}
+
+/* Styling untuk label checkbox */
+.custom-checkbox .form-check-label span.ms-2 {
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.custom-checkbox:hover .form-check-label span.ms-2 {
+  color: var(--blue-primary);
+}
+
+/* Styling khusus untuk badge persetujuan */
+.badge-approval {
+  background: linear-gradient(45deg, #dc3545, #fd7e14) !important;
+  color: white !important;
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  padding: 0.35rem 0.65rem !important;
+  border-radius: 6px !important;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 5px rgba(220, 53, 69, 0.4) !important;
+  margin-left: 0.5rem !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  animation: badge-pulse 2s infinite;
+}
+
+@keyframes badge-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7); }
+  70% { box-shadow: 0 0 0 6px rgba(220, 53, 69, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+}
+
+.badge-approval:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(220, 53, 69, 0.5) !important;
+}
+
+/* Loading Overlay Styles */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 78, 152, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.loading-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.loading-content {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 30px 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.spinner-container {
+    margin-bottom: 15px;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(0, 78, 152, 0.1);
+    border-radius: 50%;
+    border-top-color: var(--color-1);
+    animation: spin 1s ease-in-out infinite;
+    margin: 0 auto;
+}
+
+.loading-text {
+    color: var(--color-1);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

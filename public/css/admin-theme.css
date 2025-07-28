@@ -1,0 +1,54 @@
+/* Override warna primary */
+:root {
+  --bs-primary: #004e98;
+  --bs-primary-rgb: 0, 78, 152;
+}
+
+/* Background gradients */
+.bg-gradient-primary {
+  background-image: linear-gradient(195deg, #004e98 0%, #003a75 100%);
+}
+
+.bg-gradient-dark {
+  background-image: linear-gradient(195deg, #42424a 0%, #191919 100%);
+}
+
+.bg-gradient-info {
+  background-image: linear-gradient(195deg, #0066cc 0%, #004e98 100%);
+}
+
+.bg-gradient-success {
+  background-image: linear-gradient(195deg, #009b72 0%, #007355 100%);
+}
+
+.bg-gradient-warning {
+  background-image: linear-gradient(195deg, #f53939 0%, #c31c1c 100%);
+}
+
+/* Button states */
+.btn-primary {
+  background-color: #004e98;
+  border-color: #004e98;
+}
+
+.btn-primary:hover {
+  background-color: #003a75;
+  border-color: #003a75;
+}
+
+/* Sidebar active state */
+.sidenav .nav-link.active {
+  background-color: #004e98;
+}
+
+/* Progress bars */
+.progress-bar.bg-gradient-info {
+  background-image: linear-gradient(195deg, #0066cc 0%, #004e98 100%);
+}
+
+/* Cards */
+.card .card-header-primary .card-icon,
+.card .card-header-primary .card-text,
+.card .card-header-primary:not(.card-header-icon):not(.card-header-text) {
+  box-shadow: 0 4px 20px 0 rgba(0, 78, 152, 0.14), 0 7px 10px -5px rgba(0, 78, 152, 0.4);
+} 

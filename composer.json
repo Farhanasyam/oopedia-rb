@@ -1,0 +1,32 @@
+{
+    "name": "laravel-frontend-presets/material",
+    "description": "Laravel 10.x Front-end preset for material",
+    "license": "MIT",
+    "homepage": "https://github.com/creativetimofficial/material-dashboard-laravel",
+    "keywords": ["Laravel", "Preset", "Material"],
+    "require": {
+        "laravel/framework": "^10.0",
+        "laravel/legacy-factories": "^1.0",
+        "laravel/sanctum": "^3.3",
+        "laravel/tinker": "^2.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "LaravelFrontendPresets\\MaterialPreset\\": "src/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelFrontendPresets\\MaterialPreset\\MaterialPresetServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^7.12",
+        "spatie/laravel-ignition": "^2.9",
+        "laravel/sail": "^1.43"
+    }
+}
